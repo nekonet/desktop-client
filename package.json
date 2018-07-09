@@ -1,8 +1,8 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
-  "version": "0.13.3",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "name": "nekonata-desktop-client",
+  "productName": "NekonataDesktop",
+  "version": "0.0.1",
+  "description": "Nekonata Network Desktop Client",
   "scripts": {
     "build": "concurrently \"npm run build-main\" \"npm run build-renderer\"",
     "build-dll": "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.renderer.dev.dll.js --colors",
@@ -200,6 +200,7 @@
     "webpack-merge": "^4.1.2"
   },
   "dependencies": {
+    "antd": "^3.6.5",
     "devtron": "^1.4.0",
     "electron-debug": "^1.5.0",
     "font-awesome": "^4.7.0",
@@ -213,7 +214,8 @@
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
-    "source-map-support": "^0.5.6"
+    "source-map-support": "^0.5.6",
+    "styled-components": "^3.3.3"
   },
   "devEngines": {
     "node": ">=7.x",
