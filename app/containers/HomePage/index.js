@@ -13,6 +13,7 @@ import Logo from './../../assets/nekonata_logo.png';
 import 'antd/dist/antd.css';
 
 import Menu from './components/Menu';
+import ContentRouter from './components/ContentRouter';
 
 type Props = {};
 
@@ -28,7 +29,9 @@ export default class HomePage extends Component<Props> {
         </PageHeader>
         <Layout>
           <PageSider><Menu /></PageSider>
-          <PageContent>Content</PageContent>
+          <PageContent>
+            <ContentRouter />
+          </PageContent>
         </Layout>
         <PageFooter>Footer</PageFooter>
       </PageLayout>

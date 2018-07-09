@@ -1,12 +1,36 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import {Menu, Icon} from 'antd';
+import {push} from 'react-router-redux';
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
 class PageMenu extends React.Component {
-  handleClick = e => {
-    console.log('click ', e);
+  
+  componentDidMount() {
+    this.props.redirectTo('/network/overview');
+  }
+
+  handleClick = ({key}) => {
+    const {redirectTo} = this.props;
+    switch (key) {
+      case 'Network.Overview':
+        redirectTo('/network/overview');
+        break;
+      case 'Network.REST_Client':
+        redirectTo('/network/rest_client');
+        break;
+      case 'Tokens.Overview':
+        redirectTo('/tokens/overview');
+        break;
+      case 'Tokens.Buy':
+        redirectTo('/tokens/buy');
+        break;
+      default:
+        break;
+    }
   };
 
   render() {
@@ -15,7 +39,7 @@ class PageMenu extends React.Component {
         onClick={this.handleClick}
         style={{width: '100%'}}
         defaultSelectedKeys={['Network.Overview']}
-        defaultOpenKeys={['Network', 'Tokens', 'Daemon']}
+        defaultOpenKeys={['Network', 'Tokens']}
         mode="inline">
         <SubMenu
           key="Network"
@@ -39,19 +63,15 @@ class PageMenu extends React.Component {
           <Menu.Item key="Tokens.Overview">Overview</Menu.Item>
           <Menu.Item key="Tokens.Buy">Buy Tokens</Menu.Item>
         </SubMenu>
-        <SubMenu
-          key="Daemon"
-          title={
-            <span>
-              <Icon type="api" />
-              <span>Daemon</span>
-            </span>
-          }>
-          <Menu.Item key="Daemon.Status">Status</Menu.Item>
-        </SubMenu>
       </Menu>
     );
   }
-}
+};
 
-export default PageMenu;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    redirectTo: push
+  }, dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(PageMenu);
