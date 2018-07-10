@@ -2,7 +2,7 @@ import React from 'react';
 
 const NetworkOverview = props => (
   <div>
-    Wallet create 
+    Wallet page 
   </div>
 );
 

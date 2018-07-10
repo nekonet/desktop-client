@@ -2,7 +2,7 @@ import React from 'react';
 
 const NetworkOverview = props => (
   <div>
-    Network overview
+    Network page 
   </div>
 );
 

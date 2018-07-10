@@ -2,7 +2,7 @@ import React from 'react';
 
 const NetworkOverview = props => (
   <div>
-    Wallet overview
+    Tokens page 
   </div>
 );
 
