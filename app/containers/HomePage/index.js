@@ -33,7 +33,7 @@ export default class HomePage extends Component<Props> {
             <ContentRouter />
           </PageContent>
         </Layout>
-        <PageFooter>Footer</PageFooter>
+        <PageFooter>Nekonata Network - Alpha build</PageFooter>
       </PageLayout>
     );
   }

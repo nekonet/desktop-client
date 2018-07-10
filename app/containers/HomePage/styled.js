@@ -20,7 +20,14 @@ export const PageHeader = styled(Header)`
     padding: 0 20px;
 `;
 
-export const PageFooter = styled(Footer)``;
+export const PageFooter = styled(Footer)`
+  display: flex;
+  padding: 5px 50px;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 300;
+`;
 export const PageSider = styled(Sider)`
   background-color: white !important;
 `;

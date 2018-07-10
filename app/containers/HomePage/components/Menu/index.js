@@ -22,6 +22,12 @@ class PageMenu extends React.Component {
       case 'Network.REST_Client':
         redirectTo('/network/rest_client');
         break;
+      case 'Account.Overview':
+        redirectTo('/account/overview');
+        break;
+      case 'Account.Create':
+        redirectTo('/account/create');
+        break;
       case 'Tokens.Overview':
         redirectTo('/tokens/overview');
         break;
@@ -39,7 +45,7 @@ class PageMenu extends React.Component {
         onClick={this.handleClick}
         style={{width: '100%'}}
         defaultSelectedKeys={['Network.Overview']}
-        defaultOpenKeys={['Network', 'Tokens']}
+        defaultOpenKeys={['Network', 'Wallet', 'Tokens']}
         mode="inline">
         <SubMenu
           key="Network"
@@ -51,6 +57,17 @@ class PageMenu extends React.Component {
           }>
           <Menu.Item key="Network.Overview">Overview</Menu.Item>
           <Menu.Item key="Network.REST_Client">REST Client</Menu.Item>
+        </SubMenu>
+        <SubMenu
+          key="Wallet"
+          title={
+            <span>
+              <Icon type="wallet" />
+              <span>Wallets</span>
+            </span>
+          }>
+          <Menu.Item key="Wallet.Overview">Overview</Menu.Item>
+          <Menu.Item key="Wallet.Create">Create</Menu.Item>
         </SubMenu>
         <SubMenu
           key="Tokens"
