@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getTokenRequest} from './../../../../../../actions/data';
 import TokensTable from './components/Table';
+import {Wrapper, InputWrapper} from './styled';
 
 class TokensOverview extends React.Component {
   state = {
@@ -20,8 +21,8 @@ class TokensOverview extends React.Component {
 
     const tokenData = tokens && Object.values(tokens);
     return (
-      <div>
-        <div>
+      <Wrapper>
+        <InputWrapper>
           <Input
             placeholder="Transaction ID"
             onChange={e => {
@@ -35,9 +36,9 @@ class TokensOverview extends React.Component {
             onClick={() => this.getTokenData(txID)}>
             Search Token
           </Button>
-        </div>
+        </InputWrapper>
         <TokensTable data={tokenData} />
-      </div>
+      </Wrapper>
     );
   }
 }

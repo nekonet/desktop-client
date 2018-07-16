@@ -1,11 +1,13 @@
 import React from 'react';
 import {Card} from 'antd';
 
+import {Wrapper} from './styled';
+
 const BlockchainCards = ({
   loading,
   data = {},
 }) => (
-  <div>
+  <Wrapper>
     <Card loading={loading} title="Block count">
       {data.blockCount}
     </Card>
@@ -15,7 +17,7 @@ const BlockchainCards = ({
     <Card loading={loading} title="Peer Count">
       {data.peerCount}
     </Card>
-  </div>
+  </Wrapper>
 );
 
 export default BlockchainCards;

@@ -6,6 +6,8 @@ import {
   getNetworkStatusRequest,
 } from './../../../../../../actions/data';
 
+import {Wrapper} from './styled';
+
 import NetworkTable from './components/Table';
 import BlockchainCards from './components/Cards';
 
@@ -18,10 +20,12 @@ class NetworkOverview extends React.Component {
     const {network, blockchain, networkLoading, blockchainLoading} = this.props;
     const nodes = network && Object.values(network.nodes);
     return (
-      <div>
+      <Wrapper>
+        <h2>Blockchain</h2>
         <BlockchainCards data={blockchain} loading={blockchainLoading} />
+        <h2>Network</h2>
         <NetworkTable nodes={nodes} loading={networkLoading} />
-      </div>
+      </Wrapper>
     );
   }
 }
