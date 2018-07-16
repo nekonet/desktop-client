@@ -1,9 +1,59 @@
 import React from 'react';
+import {Input, Button} from 'antd';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {getTokenRequest} from './../../../../../../actions/data';
 
-const NetworkOverview = props => (
-  <div>
-    Tokens page 
-  </div>
-);
+class TokensOverview extends React.Component {
+  state = {
+    txID: '',
+  };
+  getTokenData = tx_id => {
+    if (!this.props.tokens.tokens[tx_id]) {
+      this.props.requestToken(tx_id);
+    }
+  };
+  componentDidMount() {
+    //    this.getTokenData("631365ed463f69f788f72077fdfefc33f73411ec239f069a1fc4b5d338a374c1");
+  }
+  render() {
+    const {tokens, loading} = this.props.tokens;
+    const {txID} = this.state;
+    return (
+      <div>
+        <Input
+          placeholder="Transaction ID"
+          onChange={e => {
+            this.setState({txID: e.target.value});
+          }}
+        />
+        <Button
+          icon="search"
+          type="primary"
+          loading={loading}
+          onClick={() => this.getTokenData(txID)}>
+          Search Token
+        </Button>
+        <div>Tokens: {JSON.stringify(tokens)}</div>
+      </div>
+    );
+  }
+}
 
-export default NetworkOverview;
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      requestToken: getTokenRequest,
+    },
+    dispatch,
+  );
+};
+
+const mapStateToProps = (state, ownProps) => {
+  console.log('State is: ', state);
+  return {
+    tokens: state.tokens,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TokensOverview);
