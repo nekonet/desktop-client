@@ -1,5 +1,5 @@
 const initialState = {
-  data: null,
+  data: {},
   loading: false,
   error: null,
 };
@@ -20,7 +20,7 @@ const blockchainReducer = (state = initialState, action) => {
       };
     case 'REQUEST_FAILED_BLOCKCHAIN_STATUS':
       return {
-        data: null,
+        data: {},
         loading: false,
         error: data.payload,
       };

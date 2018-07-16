@@ -3,6 +3,7 @@ import {Input, Button} from 'antd';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getTokenRequest} from './../../../../../../actions/data';
+import TokensTable from './components/Table';
 
 class TokensOverview extends React.Component {
   state = {
@@ -13,28 +14,29 @@ class TokensOverview extends React.Component {
       this.props.requestToken(tx_id);
     }
   };
-  componentDidMount() {
-    //    this.getTokenData("631365ed463f69f788f72077fdfefc33f73411ec239f069a1fc4b5d338a374c1");
-  }
   render() {
     const {tokens, loading} = this.props.tokens;
     const {txID} = this.state;
+
+    const tokenData = tokens && Object.values(tokens);
     return (
       <div>
-        <Input
-          placeholder="Transaction ID"
-          onChange={e => {
-            this.setState({txID: e.target.value});
-          }}
-        />
-        <Button
-          icon="search"
-          type="primary"
-          loading={loading}
-          onClick={() => this.getTokenData(txID)}>
-          Search Token
-        </Button>
-        <div>Tokens: {JSON.stringify(tokens)}</div>
+        <div>
+          <Input
+            placeholder="Transaction ID"
+            onChange={e => {
+              this.setState({txID: e.target.value});
+            }}
+          />
+          <Button
+            icon="search"
+            type="primary"
+            loading={loading}
+            onClick={() => this.getTokenData(txID)}>
+            Search Token
+          </Button>
+        </div>
+        <TokensTable data={tokenData} />
       </div>
     );
   }

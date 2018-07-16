@@ -3,17 +3,17 @@ import {Card} from 'antd';
 
 const BlockchainCards = ({
   loading,
-  data: {blockCount, lastBlockHash, peerCount},
+  data = {},
 }) => (
   <div>
     <Card loading={loading} title="Block count">
-      {blockCount}
+      {data.blockCount}
     </Card>
     <Card loading={loading} title="Last Block Hash">
-      {lastBlockHash}
+      {data.lastBlockHash}
     </Card>
     <Card loading={loading} title="Peer Count">
-      {peerCount}
+      {data.peerCount}
     </Card>
   </div>
 );
