@@ -25,8 +25,8 @@ class PageMenu extends React.Component {
       case 'Network':
         redirectTo('/network');
         break;
-      case 'Wallet':
-        redirectTo('/wallet');
+      case 'Client':
+        redirectTo('/client');
         break;
       case 'Tokens':
         redirectTo('/tokens');
@@ -50,16 +50,16 @@ class PageMenu extends React.Component {
             <span>Network</span>
           </span>
         </Menu.Item>
-        <Menu.Item key="Wallet">
-          <span>
-            <Icon type="wallet" />
-            <span>Wallets</span>
-          </span>
-        </Menu.Item>
         <Menu.Item key="Tokens">
           <span>
             <Icon type="key" />
             <span>Tokens</span>
+          </span>
+        </Menu.Item>
+        <Menu.Item key="Client">
+          <span>
+            <Icon type="code-o" />
+            <span>Rest Client</span>
           </span>
         </Menu.Item>
       </Menu>

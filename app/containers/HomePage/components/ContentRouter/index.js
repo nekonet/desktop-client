@@ -3,14 +3,14 @@ import {Switch, Route} from 'react-router';
 
 import NetworkPage from './components/Network';
 
-import WalletPage from './components/Wallet';
+import ClientPage from './components/Client';
 
 import TokensPage from './components/Tokens';
 
 const ContentRouter = props => (
   <Switch>
     <Route exact path="/network" component={NetworkPage} />
-    <Route exact path="/wallet" component={WalletPage} />
+    <Route exact path="/client" component={ClientPage} />
     <Route exact path="/tokens" component={TokensPage} />
   </Switch>
 );
