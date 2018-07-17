@@ -15,7 +15,10 @@
   },
   "license": "MIT",
   "dependencies": {
+    "aes-js": "^3.1.1",
     "antd": "^3.6.5",
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "crypto-js": "^3.1.9-1",
+    "socket.io-client": "^2.1.1"
   }
 }
