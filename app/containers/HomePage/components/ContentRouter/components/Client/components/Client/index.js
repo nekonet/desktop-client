@@ -4,25 +4,25 @@ import {Wrapper} from './styled';
 
 class ClientRequest extends React.Component {
   state = {url: ''};
-  
+
   handleRequest = () => {
-    this.props.request({
-      method: 'get',
-      url: this.state.url,
-      payload: null,
-    });
-  }
+    this.props.request(this.state.url);
+  };
 
   render() {
-    const {disabled} = this.props;
+    const {disabled, loading} = this.props;
     return (
       <Wrapper>
         <Input
-          disabled={disabled}
+          disabled={disabled || loading}
           onChange={e => this.setState({url: e.target.value})}
           placeholder="URL"
         />
-        <Button type="primary" onClick={this.handleRequest} disabled={disabled}>
+        <Button
+          type="primary"
+          onClick={this.handleRequest}
+          disabled={disabled}
+          loading={loading}>
           GET
         </Button>
       </Wrapper>
