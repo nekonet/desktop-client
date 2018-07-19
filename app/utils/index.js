@@ -2,8 +2,8 @@ import axios from 'axios';
 
 let coreHost = 'http://127.0.0.1:5000';
 
-if (process.env.NODE_ENV === 'production') {
-  coreHost = '138.68.75.213:5000';
+if (true || process.env.NODE_ENV === 'production') {
+  coreHost = 'http://138.68.75.213:5000';
 }
 
 export const requestCore = async ({route, method, payload}) => {
