@@ -5,6 +5,10 @@ export const Wrapper = styled.div`
   flex-direction: column;
   padding: 20px;
   align-items: center;
+
+  .ant-table-thead > tr > th {
+    min-width: 100px;
+  }
 `;
 
 export const InputWrapper = styled.div`
